@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/campo01.jpg
     - assets/campo02.jpg
+    - assets/rai.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

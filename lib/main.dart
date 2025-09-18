@@ -7,7 +7,7 @@ void main() {
   ));
 }
 
-// =================== TELA PRINCIPAL ===================
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,14 +25,14 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 20),
               GolfCourseCard(    // card 1
                 imageAsset: "assets/campo01.jpg",
-                friends: "5+ Friends",
-                title: "Winged Foot",
+                friends: "5+ amigos",
+                title: "Lajedo",
               ),
               SizedBox(height: 20),
               GolfCourseCard(    // card 2
                 imageAsset: "assets/campo02.jpg",
-                friends: "6+ Friends",
-                title: "TPC Sawgrass",
+                friends: "6+ amigos",
+                title: "Jupi",
               ),
             ],
           ),
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// =================== WIDGET TOPO ===================
+
 class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -52,29 +52,29 @@ class TopBar extends StatelessWidget {
         Icon(Icons.menu, size: 28),
         CircleAvatar(
           radius: 24,
-          backgroundImage: AssetImage("assets/campo01.png"), // só exemplo
+          backgroundImage: AssetImage("assets/rai.jpeg"), 
         ),
       ],
     );
   }
 }
 
-// =================== WIDGET SAUDAÇÃO ===================
+
 class GreetingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("HELLO,", style: TextStyle(fontSize: 22)),
-        Text("JACK NICKLAUS",
+        Text("Olá,", style: TextStyle(fontSize: 22)),
+        Text("Rai Vieira",
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
         SizedBox(height: 6),
         Row(
           children: [
             Icon(Icons.location_on, size: 18, color: Colors.grey),
             SizedBox(width: 4),
-            Text("Columbus, Ohio", style: TextStyle(color: Colors.grey)),
+            Text("Garanhuns, PE", style: TextStyle(color: Colors.grey)),
           ],
         ),
       ],
@@ -82,7 +82,7 @@ class GreetingSection extends StatelessWidget {
   }
 }
 
-// =================== WIDGET CARD DO CAMPO ===================
+
 class GolfCourseCard extends StatelessWidget {
   final String imageAsset;
   final String friends;
@@ -101,13 +101,13 @@ class GolfCourseCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
-          image: AssetImage(imageAsset), // imagem local
+          image: AssetImage(imageAsset),
           fit: BoxFit.cover,
         ),
       ),
       child: Stack(
         children: [
-          // camada escura em cima da imagem
+          
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -137,7 +137,7 @@ class GolfCourseCard extends StatelessWidget {
   }
 }
 
-// =================== WIDGET BOTÃO ===================
+
 class StartRoundButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -147,7 +147,7 @@ class StartRoundButton extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
       ),
-      child: Text("Start Round"),
+      child: Text("Agendar"),
     );
   }
 }
