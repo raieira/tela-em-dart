@@ -3,36 +3,38 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomeScreen(),
+    home: TelaPrincipal(),
   ));
 }
 
-
-class HomeScreen extends StatelessWidget {
+//
+// ================== TELA PRINCIPAL ==================
+//
+class TelaPrincipal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF6FFEF),
+      backgroundColor: Color(0xFFF6FFEF), // cor do fundo
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TopBar(),          // topo
+              Menu(),                   // topo da tela
               SizedBox(height: 20),
-              GreetingSection(), // saudação
+              Usuario(),                // parte de saudação
               SizedBox(height: 20),
-              GolfCourseCard(    // card 1
-                imageAsset: "assets/campo01.jpg",
-                friends: "5+ amigos",
-                title: "Lajedo",
+              Campo(                    // campo 1
+                imagem: "assets/campo01.jpg",
+                amigos: "5+ amigos",
+                titulo: "Lajedo",
               ),
               SizedBox(height: 20),
-              GolfCourseCard(    // card 2
-                imageAsset: "assets/campo02.jpg",
-                friends: "6+ amigos",
-                title: "Jupi",
+              Campo(                    // campo 2
+                imagem: "assets/campo02.jpg",
+                amigos: "6+ amigos",
+                titulo: "Jupi",
               ),
             ],
           ),
@@ -42,25 +44,29 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-
-class TopBar extends StatelessWidget {
+//
+// ================== MENU ==================
+//
+class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Icon(Icons.menu, size: 28),
+        Icon(Icons.menu, size: 28), // ícone do menu
         CircleAvatar(
           radius: 24,
-          backgroundImage: AssetImage("assets/rai.jpeg"), 
+          backgroundImage: AssetImage("assets/rai.jpeg"), // minha foto
         ),
       ],
     );
   }
 }
 
-
-class GreetingSection extends StatelessWidget {
+//
+// ================== USUÁRIO ==================
+//
+class Usuario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -82,16 +88,18 @@ class GreetingSection extends StatelessWidget {
   }
 }
 
+//
+// ================== CAMPO ==================
+//
+class Campo extends StatelessWidget {
+  final String imagem;
+  final String amigos;
+  final String titulo;
 
-class GolfCourseCard extends StatelessWidget {
-  final String imageAsset;
-  final String friends;
-  final String title;
-
-  GolfCourseCard({
-    required this.imageAsset,
-    required this.friends,
-    required this.title,
+  Campo({
+    required this.imagem,
+    required this.amigos,
+    required this.titulo,
   });
 
   @override
@@ -101,33 +109,34 @@ class GolfCourseCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
-          image: AssetImage(imageAsset),
+          image: AssetImage(imagem),
           fit: BoxFit.cover,
         ),
       ),
       child: Stack(
         children: [
-          
+          // fundo escuro em cima da imagem
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.black26,
             ),
           ),
+          // textos e botão
           Padding(
             padding: EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(friends, style: TextStyle(color: Colors.white)),
+                Text(amigos, style: TextStyle(color: Colors.white)),
                 Spacer(),
-                Text(title,
+                Text(titulo,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22,
                         fontWeight: FontWeight.bold)),
                 SizedBox(height: 8),
-                StartRoundButton(),
+                BotaoAgendar(),
               ],
             ),
           ),
@@ -137,8 +146,10 @@ class GolfCourseCard extends StatelessWidget {
   }
 }
 
-
-class StartRoundButton extends StatelessWidget {
+//
+// ================== BOTÃO ==================
+//
+class BotaoAgendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
